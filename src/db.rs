@@ -80,8 +80,8 @@ fn open_conn(db_path: &Path) -> Result<Connection> {
     conn.execute_batch(
         "PRAGMA journal_mode=WAL;
          PRAGMA synchronous=NORMAL;
-         PRAGMA mmap_size=268435456;
-         PRAGMA cache_size=-64000;",
+         PRAGMA mmap_size=0;
+         PRAGMA cache_size=-2000;",
     )?;
     Ok(conn)
 }
